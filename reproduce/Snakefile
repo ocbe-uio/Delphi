@@ -1,6 +1,8 @@
+PATH = "../"
 rule install:
   input:
-    "requirements.txt"
+    f"{PATH}requirements.txt"
+  threads: 1
   shell: "\
     conda create -n delphi python=3.11\
     conda activate delphi\
@@ -9,7 +11,7 @@ rule install:
 
 rule train:
   input:
-    "train.py",
-    "config/train_delphi_demo.py"
+    f"{PATH}train.py",
+    f"{PATH}config/train_delphi_demo.py"
   shell:
     "python {input[0]} {input[1]} --device=cuda --out_dir=Delphi-2M"
