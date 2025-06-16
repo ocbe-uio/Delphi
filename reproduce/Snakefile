@@ -3,6 +3,8 @@ workdir: "../"
 rule install:
   input:
     "requirements.txt"
+  log:
+    "install.log"
   threads: 1
   shell:
     """
@@ -13,7 +15,9 @@ rule install:
 
 rule train:
   input:
-    "train.py",
-    "config/train_delphi_demo.py"
+    script = "train.py",
+    parms = "config/train_delphi_demo.py"
+  log:
+    "train.log"
   shell:
-    "python {input[0]} {input[1]} --device=cuda --out_dir=Delphi-2M"
+    "python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M"
