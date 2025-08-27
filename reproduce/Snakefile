@@ -28,5 +28,5 @@ rule train_demo:
     module --latest load Miniconda3
     source $(conda info --base)/etc/profile.d/conda.sh
     conda activate delphi
-    python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M
+    time python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M
     """
