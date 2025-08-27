@@ -18,11 +18,12 @@ rule install:
     pip install --upgrade --user numpy
     """
 
-rule train:
+rule train_demo:
   input:
     script = "train.py",
     parms = "config/train_delphi_demo.py"
   log:
     "train.log"
+  threads: 1
   shell:
     "python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M"
