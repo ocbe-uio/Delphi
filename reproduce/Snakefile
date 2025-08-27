@@ -8,9 +8,14 @@ rule install:
   threads: 1
   shell:
     """
-    conda create -n delphi python=3.11
+    module --latest load Miniconda3
+    conda create --name delphi python=3.11 --yes
+    source $(conda info --base)/etc/profile.d/conda.sh
     conda activate delphi
-    pip install -r {input}
+    pip install --upgrade --user pip
+    pip install --requirement {input} --user
+    conda install pytorch numpy
+    pip install --upgrade --user numpy
     """
 
 rule train:
