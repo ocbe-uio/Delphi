@@ -14,8 +14,6 @@ rule install:
     conda activate delphi
     pip install --upgrade --user pip
     pip install --requirement {input} --user
-    conda install pytorch numpy
-    pip install --upgrade --user numpy
     """
 
 rule train_demo:
@@ -26,4 +24,9 @@ rule train_demo:
     "train.log"
   threads: 1
   shell:
-    "python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M"
+    """
+    module --latest load Miniconda3
+    source $(conda info --base)/etc/profile.d/conda.sh
+    conda activate delphi
+    python {input.script} {input.parms} --device=cuda --out_dir=Delphi-2M
+    """
