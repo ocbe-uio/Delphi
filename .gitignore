@@ -1,0 +1,7 @@
+Delphy-2M
+__pycache__/
+.envrc
+Delphi-2M/ckpt.pt
+.snakemake/
+*.log
+reproduce/TODO.md
