@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # Creates a virtual conda environment and installs dependencies
 
 module --latest load Miniconda3
