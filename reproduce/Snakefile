@@ -6,6 +6,8 @@ rule install:
   log:
     "install.log"
   threads: 1
+  conda:
+    "envs/delphi.yaml"
   shell:
     """
     module --latest load Miniconda3
@@ -23,6 +25,8 @@ rule train_demo:
   log:
     "train.log"
   threads: 1
+  conda:
+    "envs/delphi.yaml"
   shell:
     """
     module --latest load Miniconda3
