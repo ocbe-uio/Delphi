@@ -5,3 +5,4 @@ Delphi-2M/ckpt.pt
 .snakemake/
 *.log
 reproduce/TODO.md
+Meta/
