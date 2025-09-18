@@ -9,3 +9,4 @@ module load Python/3.11.3-GCCcore-12.3.0 # match python version in conda env
 
 echo "This script is intended to be sourced, not executed."
 echo "Otherwise, the conda environment will not persist in your current shell."
+echo "Usage: source 3-activate.sh"
